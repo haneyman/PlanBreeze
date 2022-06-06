@@ -7,9 +7,9 @@ Website for planning your life.
 - Shows feeds of upcoming concerts, festivals, and other events of interest.
 
 ## Stacks:
-- Backend: Java Spring Boot API
-- Frontend: React and ??
+- Backend: Single API using Java, Spring Boot, Gradle
+- Frontend: Typescript, React and ??
 
 ## Design:
-- [Wireframe:](https://www.figma.com/file/VIrjxNTsEwP3UHtkdfP7ZW/PlanBreeze?node-id=0%3A1)
+- [Wireframe](https://www.figma.com/file/VIrjxNTsEwP3UHtkdfP7ZW/PlanBreeze?node-id=0%3A1)
 
