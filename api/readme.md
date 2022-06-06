@@ -1,9 +1,9 @@
 # PlanBreeze API Source
 
 ### Stack: Java, Spring Boot and Web, Gradle
-
+```
 src
-  /main
+  main
     /java/com.planbreeze.api
         /controllers - main web controllers
           EventsController - handles methods for dealing with events
@@ -13,7 +13,7 @@ src
  /test
     /java/com/planbreeze.api
         ApiApplicationTests - initial set of automated tests
-
+```
 ### Commands:
 - Run:   `./gradlew bootRun`
 - Build:  `./gradlew build`
