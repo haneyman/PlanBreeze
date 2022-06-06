@@ -6,6 +6,10 @@ Website for planning your life.
 - "Whats coming up, can I fit that into my calendar?"
 - Shows feeds of upcoming concerts, festivals, and other events of interest.
 
-Stacks:
-- Java Spring Boot API
-- React Frontend
+## Stacks:
+- Backend: Java Spring Boot API
+- Frontend: React and ??
+
+## Design:
+- [Wireframe:](https://www.figma.com/file/VIrjxNTsEwP3UHtkdfP7ZW/PlanBreeze?node-id=0%3A1)
+
