@@ -10,19 +10,23 @@ import Fab from "@mui/material/Fab";
 // import AddIcon from '@mui/icons-material/Add';
 
 const App = () => {
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const [eventDialogOpen, setEventDialogOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   // const openDialog = React.useRef(null);
 
-  const openTheDialog = (open: boolean) => {
-    console.log('open dialog', open);
-    setOpenDialog(true);
+  const openTheDialog = () => {
+    setEventDialogOpen(true);
   }
-
+  const closeEventDialog = () => {
+    setEventDialogOpen(false);
+  };
+  
   return (
     <div>
       <header>
-        <h2>PlanBreeze</h2>
+        <h2>PlanBreeze</h2><p>open: {eventDialogOpen ? "true" : "false"}</p>
       </header>
+      
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -37,7 +41,7 @@ const App = () => {
           {BasicCard("Some fun event", "6/30/2022")}
         </Box>
         <div className="add-button">
-          <Fab color="primary" aria-label="add" onClick={() => openTheDialog(true)}>
+          <Fab color="primary" aria-label="add" onClick={() => openTheDialog()}>
             Add
             {/* <AddIcon /> */}
           </Fab>
@@ -56,7 +60,7 @@ const App = () => {
 
       <div className="toolbar">{renderToolbar()}</div>
 
-      <EventDialog openDialog={openDialog}/>
+      <EventDialog eventDialogOpen={eventDialogOpen} handleClose={closeEventDialog}/>
     </div>
   );
 }

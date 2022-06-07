@@ -8,30 +8,24 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function EventDialog(props: any) {
-  const [open, setOpen] = React.useState(props.openDialog);
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
-    setOpen(props.openDialog);
-  });
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+      setOpen(props.eventDialogOpen);
+  }, [props.eventDialogOpen]);
 
   const handleClose = () => {
-    setOpen(false);
+    props.handleClose();
   };
 
   const handleAdd = () => {
-    // save goes here
-    setOpen(false);
+    // save data, refresh
+    props.handleClose();
   };
 
   return (
+    
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add Event</DialogTitle>
         <DialogContent>
@@ -59,7 +53,7 @@ export default function EventDialog(props: any) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleAdd}>Add</Button>
+          <Button onClick={handleAdd}>Add Event</Button>
         </DialogActions>
       </Dialog>
     </div>
