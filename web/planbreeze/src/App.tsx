@@ -1,32 +1,62 @@
 import React from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import EventDialog from "./EventDialog";
+import EventDialog from "./components/EventDialog";
 import Fab from "@mui/material/Fab";
+import ApplicationBar from "./components/AppBar";
+import { Event } from "./types/Event";
+import EventCard from "./components/EventCard";
 // import AddIcon from '@mui/icons-material/Add';
 
 const App = () => {
-  const [eventDialogOpen, setEventDialogOpen] = React.useState(false);
-  // const [open, setOpen] = React.useState(false);
-  // const openDialog = React.useRef(null);
+  const [eventDialogOpen, setEventDialogOpen] = React.useState<boolean>(false);
+  const [events, setEvents] = React.useState<Event[]>();
+  const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
 
-  const openTheDialog = () => {
+  const apiUrl = "http://localhost/events/";
+
+  React.useEffect(() => {
+    setLoggedIn(true);
+    if (loggedIn) {
+      loadData();
+    }
+  }, [loggedIn]);
+
+  const loadData = () => {
+    const testData: Event[] = [
+      { description: "desc 1", date: "date 1" },
+      { description: "desc 2", date: "date 2" },
+    ];
+    setEvents(testData);
+    console.log("events loaded", events);
+  };
+
+  const openEventDialog = () => {
     setEventDialogOpen(true);
-  }
-  const closeEventDialog = () => {
+  };
+
+  const closeEventDialog = (event: Event) => {
+    // save Event
+    if (events) {
+      const curEvents = [...events];
+      curEvents.push(event);
+      setEvents(curEvents);
+    }
     setEventDialogOpen(false);
   };
-  
+
+  const login = () => {
+    // login goes here
+    loadData();
+  };
+
   return (
     <div>
-      <header>
-        <h2>PlanBreeze</h2><p>open: {eventDialogOpen ? "true" : "false"}</p>
-      </header>
-      
+      <ApplicationBar />
+      {/* <header>
+        <h2>PlanBreeze</h2>
+      </header> */}
+
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -34,14 +64,15 @@ const App = () => {
 
       <div className="eventsBox">
         {/* <div className="eventBox"> */}
-        <Box
-          component="span"
-          sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-        >
-          {BasicCard("Some fun event", "6/30/2022")}
-        </Box>
+        {events?.map((event: Event, index: number) => (
+          <EventCard event={event}/>
+        ))}
         <div className="add-button">
-          <Fab color="primary" aria-label="add" onClick={() => openTheDialog()}>
+          <Fab
+            color="primary"
+            aria-label="add"
+            onClick={() => openEventDialog()}
+          >
             Add
             {/* <AddIcon /> */}
           </Fab>
@@ -58,32 +89,21 @@ const App = () => {
         ></iframe>
       </div>
 
-      <div className="toolbar">{renderToolbar()}</div>
+      {/* <div className="toolbar">{renderToolbar()}</div> */}
 
-      <EventDialog eventDialogOpen={eventDialogOpen} handleClose={closeEventDialog}/>
+      <EventDialog
+        eventDialogOpen={eventDialogOpen}
+        handleClose={closeEventDialog}
+      />
     </div>
   );
-}
+};
 
 function renderToolbar() {
   return (
     <div>
       <Button variant="contained">Add Event</Button>
     </div>
-  );
-}
-
-function BasicCard(description: string, date: string) {
-  return (
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <p>{description}</p>
-        <p>{date}</p>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Add To Calendar</Button>
-      </CardActions>
-    </Card>
   );
 }
 

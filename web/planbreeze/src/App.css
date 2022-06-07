@@ -7,15 +7,16 @@ iFrame {
 }
 
 .eventsBox {
-  margin: 0 5em 5em 5em;
-  background-color: gray;
+  margin: 20px 5em 30px 5em;
+  padding: 5px;
+  background-color: rgb(210, 203, 236);
   display: flex;
 }
 
-.eventBox {
+/* .eventBox {
   border: solid burlywood 1px;
   display: flex;
-}
+} */
 
 .add-button {
   display:flex;

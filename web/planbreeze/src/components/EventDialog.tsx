@@ -6,9 +6,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { Event } from '../types/Event';
 
 export default function EventDialog(props: any) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [description, setDescription] = React.useState<string>();
+  const [date, setDate] = React.useState<string>();
 
   React.useEffect(() => {
       setOpen(props.eventDialogOpen);
@@ -20,7 +23,8 @@ export default function EventDialog(props: any) {
 
   const handleAdd = () => {
     // save data, refresh
-    props.handleClose();
+    const event: Event = { description, date };
+    props.handleClose(event);
   };
 
   return (
@@ -40,6 +44,7 @@ export default function EventDialog(props: any) {
             type="text"
             fullWidth
             variant="standard"
+            onChange={(event) => {setDescription(event.target.value)}}
           />
           <TextField
             autoFocus
@@ -49,6 +54,7 @@ export default function EventDialog(props: any) {
             type="text"
             fullWidth
             variant="standard"
+            onChange={(event) => {setDate(event.target.value)}}
           />
         </DialogContent>
         <DialogActions>
