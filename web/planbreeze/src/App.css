@@ -8,14 +8,25 @@ iFrame {
 
 .eventsBox {
   margin: 0 5em 5em 5em;
-  height: 200px;
-  border: solid burlywood 1px;
+  background-color: gray;
+  display: flex;
 }
 
 .eventBox {
-  display: flex;
   border: solid burlywood 1px;
+  display: flex;
+}
 
+.add-button {
+  display:flex;
+  margin-left: auto;
+  padding-right: 10px;
+  align-self: flex-end;
+}
+
+.add-button button { /* Fab */
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 
 .iframeBox {

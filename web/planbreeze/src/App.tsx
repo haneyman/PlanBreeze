@@ -1,13 +1,23 @@
 import React from "react";
 import "./App.css";
 import Button from "@mui/material/Button";
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import EventDialog from "./EventDialog";
+import Fab from "@mui/material/Fab";
+// import AddIcon from '@mui/icons-material/Add';
 
-function App() {
+const App = () => {
+  const [openDialog, setOpenDialog] = React.useState(false);
+  // const openDialog = React.useRef(null);
+
+  const openTheDialog = (open: boolean) => {
+    console.log('open dialog', open);
+    setOpenDialog(true);
+  }
+
   return (
     <div>
       <header>
@@ -20,9 +30,18 @@ function App() {
 
       <div className="eventsBox">
         {/* <div className="eventBox"> */}
-         <Box component="span" sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-           {BasicCard("Some fun event", "6/30/2022")}
-         </Box>
+        <Box
+          component="span"
+          sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+        >
+          {BasicCard("Some fun event", "6/30/2022")}
+        </Box>
+        <div className="add-button">
+          <Fab color="primary" aria-label="add" onClick={() => openTheDialog(true)}>
+            Add
+            {/* <AddIcon /> */}
+          </Fab>
+        </div>
         {/* </div> */}
       </div>
       <div className="iframeBox">
@@ -36,6 +55,8 @@ function App() {
       </div>
 
       <div className="toolbar">{renderToolbar()}</div>
+
+      <EventDialog openDialog={openDialog}/>
     </div>
   );
 }
@@ -47,8 +68,6 @@ function renderToolbar() {
     </div>
   );
 }
-
-
 
 function BasicCard(description: string, date: string) {
   return (
