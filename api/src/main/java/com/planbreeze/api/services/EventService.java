@@ -12,7 +12,7 @@ public class EventService {
         //TODO: gets a list of events for user
         Event newEvent = new Event();
         Event newEvent2 = new Event();
-        List<Event> events = new ArrayList<Event>();
+        List<Event> events = new ArrayList<>();
         events.add(newEvent);
         events.add(newEvent2);
         return events;
