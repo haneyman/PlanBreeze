@@ -11,6 +11,7 @@ import { Event } from '../types/Event';
 export default function EventDialog(props: any) {
   const [open, setOpen] = React.useState<boolean>(false);
   const [description, setDescription] = React.useState<string>();
+  const [blob, setBlob] = React.useState<string>();
   const [date, setDate] = React.useState<string>();
 
   React.useEffect(() => {
@@ -23,7 +24,7 @@ export default function EventDialog(props: any) {
 
   const handleAdd = () => {
     // save data, refresh
-    const event: Event = { description, date };
+    const event: Event = { description, date, blob };
     props.handleClose(event);
   };
 
@@ -39,7 +40,7 @@ export default function EventDialog(props: any) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="description"
             label="Event Description"
             type="text"
             fullWidth
@@ -49,12 +50,24 @@ export default function EventDialog(props: any) {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="date"
             label="Event Date"
             type="text"
             fullWidth
             variant="standard"
             onChange={(event) => {setDate(event.target.value)}}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="blob"
+            label="Paste Raw Text Here"
+            type="text"
+            fullWidth
+            variant="outlined"
+            multiline
+            maxRows={4}
+            onChange={(event) => {setBlob(event.target.value)}}
           />
         </DialogContent>
         <DialogActions>

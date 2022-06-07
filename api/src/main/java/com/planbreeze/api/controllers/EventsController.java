@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.planbreeze.api.model.Event;
+import com.planbreeze.api.services.EventParser;
 import com.planbreeze.api.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -35,6 +36,12 @@ public class EventsController {
     public Event addEvent(@RequestBody Event event) {
         Event newEvent = eventService.addEvent(event);
         return new Event();
+    }
+
+    @PostMapping("/events/blob")
+    public Event addEventBlob(@RequestBody String eventBlob) {
+        Event newEvent = EventParser.parseBlob(eventBlob);
+        return newEvent;
     }
 
     @PutMapping("/events/{id}")

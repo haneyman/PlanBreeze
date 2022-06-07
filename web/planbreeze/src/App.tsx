@@ -24,8 +24,8 @@ const App = () => {
 
   const loadData = () => {
     const testData: Event[] = [
-      { description: "desc 1", date: "date 1" },
-      { description: "desc 2", date: "date 2" },
+      { description: "desc 1", date: "date 1", blob: undefined },
+      { description: "desc 2", date: "date 2", blob: undefined },
     ];
     setEvents(testData);
     console.log("events loaded", events);
@@ -37,7 +37,7 @@ const App = () => {
 
   const closeEventDialog = (event: Event) => {
     // save Event
-    if (events) {
+    if (events && event) {
       const curEvents = [...events];
       curEvents.push(event);
       setEvents(curEvents);

@@ -6,6 +6,8 @@ public class Event {
     private int id;
     private Date date;
     private String description;
+    private String blob;
+    private String location;
 
     public Date getDate() {
         return date;
@@ -29,5 +31,32 @@ public class Event {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getBlob() {
+        return blob;
+    }
+
+    public void setBlob(String blob) {
+        this.blob = blob;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                ", blob='" + blob + '\'' +
+                ", location='" + location + '\'' +
+                '}';
     }
 }
