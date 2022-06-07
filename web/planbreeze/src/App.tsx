@@ -13,7 +13,9 @@ const App = () => {
   const [events, setEvents] = React.useState<Event[]>();
   const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
 
-  const apiUrl = "http://localhost/events/";
+  // const apiUrl = "http://localhost/events/";
+  const calendarUrl = "https://calendar.google.com/calendar/embed?src=mancalledhaney%40gmail.com&ctz=America%2FLos_Angeles"
+  // const calendarUrl = "https://calendar.google.com/calendar/embed?src=0sd78a72qmvkt0fje0ho90vanj0nvphu%40import.calendar.google.com&ctz=America%2FLos_Angeles";
 
   React.useEffect(() => {
     setLoggedIn(true);
@@ -65,7 +67,7 @@ const App = () => {
       <div className="eventsBox">
         {/* <div className="eventBox"> */}
         {events?.map((event: Event, index: number) => (
-          <EventCard event={event}/>
+          <EventCard event={event} key={index}/>
         ))}
         <div className="add-button">
           <Fab
@@ -82,7 +84,7 @@ const App = () => {
       <div className="iframeBox">
         <iframe
           title="iframe1"
-          src="https://calendar.google.com/calendar/embed?src=mancalledhaney%40gmail.com&ctz=America%2FLos_Angeles"
+          src={calendarUrl}
           width="800"
           height="600"
           scrolling="no"
