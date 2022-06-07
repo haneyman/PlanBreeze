@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+iFrame {
+  border: 0; 
+}
+
+.eventsBox {
+  margin: 0 5em 5em 5em;
+  height: 200px;
+  border: solid burlywood 1px;
+}
+
+.eventBox {
+  display: flex;
+  border: solid burlywood 1px;
+
+}
+
+.iframeBox {
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.toolbar {
+  margin: 5em;
+}
