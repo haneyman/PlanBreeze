@@ -24,7 +24,13 @@ export default function EventDialog(props: any) {
 
   const handleAdd = () => {
     // save data, refresh
-    const event: Event = { description, date, blob };
+    let dateObject: Date | undefined;
+    if (date) {
+      dateObject = new Date(date);
+    } else {
+      dateObject = undefined;
+    }
+    const event: Event = { description, date: dateObject, blob };
     props.handleClose(event);
   };
 

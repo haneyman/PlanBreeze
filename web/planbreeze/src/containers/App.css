@@ -11,6 +11,10 @@ iFrame {
   padding: 5px;
   background-color: rgb(210, 203, 236);
   display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 /* .eventBox {

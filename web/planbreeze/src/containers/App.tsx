@@ -32,7 +32,6 @@ const App = () => {
     //   { description: "desc 2", date: "date 2", blob: undefined },
     // ];
     setEvents(events);
-    console.log("events loaded", events);
   };
 
   const openEventDialog = () => {
@@ -57,9 +56,6 @@ const App = () => {
   return (
     <div>
       <ApplicationBar />
-      {/* <header>
-        <h2>PlanBreeze</h2>
-      </header> */}
 
       <link
         rel="stylesheet"
@@ -67,7 +63,6 @@ const App = () => {
       />
 
       <div className="eventsBox">
-        {/* <div className="eventBox"> */}
         {events?.map((event: Event, index: number) => (
           <EventCard event={event} key={index}/>
         ))}
@@ -81,7 +76,6 @@ const App = () => {
             {/* <AddIcon /> */}
           </Fab>
         </div>
-        {/* </div> */}
       </div>
       <div className="iframeBox">
         <iframe
@@ -102,13 +96,5 @@ const App = () => {
     </div>
   );
 };
-
-function renderToolbar() {
-  return (
-    <div>
-      <Button variant="contained">Add Event</Button>
-    </div>
-  );
-}
 
 export default App;

@@ -1,5 +1,5 @@
 export type Event = {
     description: string | undefined;
-    date: string | undefined;// TODO: date?
+    date: Date | undefined;
     blob: string | undefined;
 }
