@@ -44,5 +44,14 @@ public class EventParserTests {
             System.out.println("Parsed blob: " + result);
             assertThat(result.getDate()).isEqualTo(new Date("June 8, 2022 10:00 AM"));
         }
+        @Test
+        public void test3() throws Exception {
+//            Event result = EventParser.parseBlob(test2);
+            StringBuilder sb = new StringBuilder();
+            String[] lines = test1.split("\\n");
+
+            System.out.println("lines: " + lines.length);
+//            assertThat(result.getDate()).isEqualTo(new Date("June 8, 2022 10:00 AM"));
+        }
 
 }
