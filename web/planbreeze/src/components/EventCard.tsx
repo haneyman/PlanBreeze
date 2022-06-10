@@ -6,7 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Event } from "../types/Event";
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 
 const card = (event: Event) => {
   return (
