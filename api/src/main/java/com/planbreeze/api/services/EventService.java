@@ -11,19 +11,15 @@ import java.util.List;
 public class EventService {
     public List<Event> getEvents() {
         //TODO: gets a list of events for user
-        Event newEvent = new Event();
-        newEvent.setDescription("event 1 description is this");
-        newEvent.setDate(new Date("06/10/2020 6:00 PM"));
-        Event newEvent2 = new Event();
-        newEvent2.setDescription("event 2 description is this");
-        newEvent2.setDate(new Date("06/11/2020 6:00 PM"));
-        Event newEvent3 = new Event();
-        newEvent3.setDescription("event 3 description is this");
-        newEvent3.setDate(new Date("06/12/2020 6:00 PM"));
         List<Event> events = new ArrayList<>();
-        events.add(newEvent);
-        events.add(newEvent2);
-        events.add(newEvent3);
+        for (int i = 0; i < 20; i++) {
+            Event newEvent = new Event();
+            newEvent.setDescription("event " + i + " description is this here text which could get lengthy");
+            String newDate = "06/" + Integer.toString(i + 10) + "/2020 6:00 PM";
+            Date date = new Date(newDate);
+            newEvent.setDate(date);
+            events.add(newEvent);
+        }
         return events;
     }
 
