@@ -7,6 +7,7 @@ import ApplicationBar from "../components/AppBar";
 import { Event } from "../types/Event";
 import EventCard from "../components/EventCard";
 import EventsService from "../services/eventsService";
+import eventsService from "../services/eventsService";
 // import AddIcon from '@mui/icons-material/Add';
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
       const curEvents = [...events];
       curEvents.push(event);
       setEvents(curEvents);
+      eventsService.createEvent(event);
     }
     setEventDialogOpen(false);
   };
