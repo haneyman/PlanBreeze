@@ -17,7 +17,7 @@ const card = (event: Event) => {
         </Typography>
         <br />
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          <EventDate date={event.date} />
+          <EventDate date={event.event_date} />
         </Typography>
         {/* <Typography variant="body2">
           some other text.
@@ -49,10 +49,10 @@ function EventDate(props: any) {
     const dateLine = dateFormat(dateObject, "dddd, mmmm dS, yyyy");
     const timeLine = dateFormat(dateObject, "h:MM:ss TT");
     return (
-      <div>
+      <React.Fragment>
         {dateLine} <br />
         {timeLine}
-      </div>
+      </React.Fragment>
     );
   }
 }

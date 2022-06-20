@@ -6,7 +6,7 @@ import Fab from "@mui/material/Fab";
 import ApplicationBar from "../components/AppBar";
 import { Event } from "../types/Event";
 import EventCard from "../components/EventCard";
-import EventsService from "../services/eventsService"
+import EventsService from "../services/eventsService";
 // import AddIcon from '@mui/icons-material/Add';
 
 const App = () => {
@@ -15,10 +15,11 @@ const App = () => {
   const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
 
   // const apiBaseUrl = "http://localhost/events/";
-  const calendarUrl = "https://calendar.google.com/calendar/embed?src=mancalledhaney%40gmail.com&ctz=America%2FLos_Angeles"
+  const calendarUrl =
+    "https://calendar.google.com/calendar/embed?src=mancalledhaney%40gmail.com&ctz=America%2FLos_Angeles";
   // const calendarUrl = "https://calendar.google.com/calendar/embed?src=0sd78a72qmvkt0fje0ho90vanj0nvphu%40import.calendar.google.com&ctz=America%2FLos_Angeles";
 
-  React.useEffect( () => {
+  React.useEffect(() => {
     setLoggedIn(true);
     if (loggedIn) {
       loadData();
@@ -27,9 +28,17 @@ const App = () => {
 
   const loadData = async () => {
     const events = await EventsService.getAllEvents();
-    // const testData: Event[] = [
-    //   { description: "desc 1", date: "date 1", blob: undefined },
-    //   { description: "desc 2", date: "date 2", blob: undefined },
+    // const events = [
+    //   {
+    //     description: "Electric Forest",
+    //     date: new Date("6/21/2022 1:00 PM"),
+    //     blob: "",
+    //   },
+    //   {
+    //     description: "Brew Fest Sf",
+    //     date: new Date("7/21/2022 1:00 PM"),
+    //     blob: "",
+    //   },
     // ];
     setEvents(events);
   };
@@ -64,7 +73,7 @@ const App = () => {
 
       <div className="eventsBox">
         {events?.map((event: Event, index: number) => (
-          <EventCard event={event} key={index}/>
+          <EventCard event={event} key={index} />
         ))}
         <div className="add-button">
           <Fab

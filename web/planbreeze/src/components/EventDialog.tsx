@@ -30,7 +30,7 @@ export default function EventDialog(props: any) {
     } else {
       dateObject = undefined;
     }
-    const event: Event = { description, date: dateObject, blob };
+    const event: Event = { description, event_date: dateObject, blob };
     props.handleClose(event);
   };
 
